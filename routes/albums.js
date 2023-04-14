@@ -23,26 +23,26 @@ router.get('/list', (req, res) => {
     })
 });
 
-// router.get('/list/:id', (req, res) => {
-//     const {id} = req.params;
-//     fs.readFile(ALBUMS_FILE, 'utf8', (err, data) => {
-//         if (err) {
-//             res.status(500).send("Error reading the file")
-//             return;
-//         } else {
-//             data = JSON.parse(data);
-//             let targetAlbum = data.find(album => album.id === id);
-//             if(targetAlbum) {
-//                 res.json(targetAlbum);
-//             } else {
-//                 res.status(404)
-//                 .send(`<h1>Error, Unknown album...</h1>`);
-//             }
-//         }
-//     })
-// })
+router.get('/list/:id', (req, res) => {
+    const {id} = req.params;
+    fs.readFile(ALBUMS_FILE, 'utf8', (err, data) => {
+        if (err) {
+            res.status(500).send("Error reading the file")
+            return;
+        } else {
+            data = JSON.parse(data);
+            let targetAlbum = data.find(album => album.id === id);
+            if(targetAlbum) {
+                res.json(targetAlbum);
+            } else {
+                res.status(404)
+                .send(`<h1>Error, Unknown album...</h1>`);
+            }
+        }
+    })
+})
 
-router.get('/list/search/', (req, res) => {
+router.get('/search/', (req, res) => {
     const searchString = req.query.s;    
     fs.readFile(ALBUMS_FILE, 'utf-8', (err, data) => {
                 if (err) {

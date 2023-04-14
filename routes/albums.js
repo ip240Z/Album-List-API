@@ -5,10 +5,10 @@ const fs = require('fs');
 let USERS_FILE = './data/users.json';
 const ALBUMS_FILE = './data/albums.json'
 
-router.get('/', (req, res) => {
-    res.send(`<h1>Welcome to the albums list</h1>
-    <h2>/albums/list to get a list of all albums in database</h2>`)
-});
+// router.get('/', (req, res) => {
+//     res.send(`<h1>Welcome to the albums list</h1>
+//     <h2>/albums/list to get a list of all albums in database</h2>`)
+// });
 
 router.get('/list', (req, res) => {
     fs.readFile(ALBUMS_FILE, 'utf8', (err, data) => {
@@ -23,24 +23,44 @@ router.get('/list', (req, res) => {
     })
 });
 
-router.get('/list/:id', (req, res) => {
-    const {id} = req.params;
-    fs.readFile(ALBUMS_FILE, 'utf8', (err, data) => {
-        if (err) {
+// router.get('/list/:id', (req, res) => {
+//     const {id} = req.params;
+//     fs.readFile(ALBUMS_FILE, 'utf8', (err, data) => {
+//         if (err) {
+//             res.status(500).send("Error reading the file")
+//             return;
+//         } else {
+//             data = JSON.parse(data);
+//             let targetAlbum = data.find(album => album.id === id);
+//             if(targetAlbum) {
+//                 res.json(targetAlbum);
+//             } else {
+//                 res.status(404)
+//                 .send(`<h1>Error, Unknown album...</h1>`);
+//             }
+//         }
+//     })
+// })
+
+router.get('/list/search/', (req, res) => {
+    const searchString = req.query.s;    
+    fs.readFile(ALBUMS_FILE, 'utf-8', (err, data) => {
+                if (err) {
             res.status(500).send("Error reading the file")
             return;
         } else {
             data = JSON.parse(data);
-            let targetAlbum = data.find(album => album.id === id);
-            if(targetAlbum) {
-                res.json(targetAlbum);
-            } else {
-                res.status(404)
-                .send(`<h1>Error, Unknown album...</h1>`);
-            }
+            console.log(data);
+            let searchResults = data.filter(album => {
+                return album.title.toLowerCase().includes(searchString.toLowerCase()) || 
+                       album.artist.toLowerCase().includes(searchString.toLowerCase()) ||
+                       album.releaseYear.includes(searchString);
+            });
+            console.log(searchResults)
+            res.json(searchResults);
         }
-        })
-    })
+    })    
+})
 
 router.post('/', (req, res) => {
     fs.readFile(ALBUMS_FILE, 'utf-8', (err, data) => {

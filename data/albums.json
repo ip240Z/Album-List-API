@@ -1,0 +1,73 @@
+[{"id":"1","title":"Zeppelin I","cover":"./images/LZ1.jpeg","artist":"Led Zeppelin","releaseYear":"1969"},
+{"id":"2","title":"Facelift","cover":"bassistMikeStarrFacelol","artist":"Alice In Chains","releaseYear":"1990"},
+{"id":"3","title":"Zeppelin II","cover":"Flight crew","artist":"Led Zeppelin","releaseYear":"1969"},
+{
+    "id": "4",
+    "title": "Led Zeppelin IV",
+    "artist": "Led Zeppelin",
+    "releaseYear": "1971"
+    },
+    
+    {
+    "id": "5",
+    "title": "The Dark Side of the Moon",
+    "artist": "Pink Floyd",
+    "releaseYear": "1973"
+    },
+    
+    {
+    "id": "6",
+    "title": "Sticky Fingers",
+    "artist": "The Rolling Stones",
+    "releaseYear": "1971"
+    },
+    
+    {
+    "id": "7",
+    "title": "Rumours",
+    "artist": "Fleetwood Mac",
+    "releaseYear": "1977"
+    },
+    
+    {
+    "id": "8",
+    "title": "Boston",
+    "artist": "Boston",
+    "releaseYear": "1976"
+    },
+    
+    {
+    "id": "9",
+    "title": "The Wall",
+    "artist": "Pink Floyd",
+    "releaseYear": "1979"
+    },
+    
+    {
+    "id": "10",
+    "title": "Hotel California",
+    "artist": "Eagles",
+    "releaseYear": "1976"
+    },
+    
+    {
+    "id": "11",
+    "title": "Physical Graffiti",
+    "artist": "Led Zeppelin",
+    "releaseYear": "1975"
+    },
+    
+    {
+    "id": "12",
+    "title": "Paranoid",
+    "artist": "Black Sabbath",
+    "releaseYear": "1970"
+    },
+    
+    {
+    "id": "13",
+    "title": "A Night at the Opera",
+    "artist": "Queen",
+    "releaseYear": "1975"
+    }
+]

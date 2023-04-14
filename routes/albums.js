@@ -5,10 +5,10 @@ const fs = require('fs');
 let USERS_FILE = './data/users.json';
 const ALBUMS_FILE = './data/albums.json'
 
-// router.get('/', (req, res) => {
-//     res.send(`<h1>Welcome to the albums list</h1>
-//     <h2>/albums/list to get a list of all albums in database</h2>`)
-// });
+router.get('/', (req, res) => {
+    res.send(`<h1>Welcome to the albums list</h1>
+    <h2>/albums/list to get a list of all albums in database</h2>`)
+});
 
 router.get('/list', (req, res) => {
     fs.readFile(ALBUMS_FILE, 'utf8', (err, data) => {

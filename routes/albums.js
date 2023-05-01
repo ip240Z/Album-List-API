@@ -43,7 +43,7 @@ router.get('/list/:id', (req, res) => {
 })
 
 router.get('/search/', (req, res) => {
-    const searchString = req.query.s;    
+    const searchString = req.body.s;    
     fs.readFile(ALBUMS_FILE, 'utf-8', (err, data) => {
                 if (err) {
             res.status(500).send("Error reading the file")
